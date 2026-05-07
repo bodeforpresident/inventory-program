@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void tableOutput(vector<string>& resistors, vector<int>& resistorValues); // display table
+void tableOutputUnsorted(vector<string>& resistors, vector<int>& resistorValues); // display table
 
 int main() {
     // resistors vector
@@ -15,12 +15,13 @@ int main() {
     
     // resistors values pt 2
     vector<int> resistorValues = {61, 96, 98, 101, 78, 93, 83, 87, 93, 88, 89, 69, 49, 93, 72, 86, 90, 76, 256, 78, 142, 9, 80, 73, 2, 16, 512, 444, 5, 0, 456, 208, 532, 10, 297, 
-    345, 255, 21, 22, 0, 379, 55, 246, 327, 283, 295, 93, 418, 246, 209, };
+    345, 255, 21, 22, 0, 379, 55, 246, 327, 283, 295, 93, 418, 246, 209, 178, 171, 56, 68, 268, 348, 76, 116, 91, 289, 88, 79, 112, 73, 245, 91, 169, 89, 74, 86, 380, 74, 213, 93, 89, 
+    88, 79, 112, 73, 245, 91, 169, 89, 74, 213, 93, 97, 89, 88, 37};
     
-    tableOutput(resistors, resistorValues);
+    tableOutputUnsorted(resistors, resistorValues);
 }
 
-void tableOutput(vector<string>& resistors, vector<int>& resistorValues) {
+void tableOutputUnsorted(vector<string>& resistors, vector<int>& resistorValues) {
     int k = 0;
     
     cout << "| Resistor Value | Amt. of Resistors |\n";
@@ -70,14 +71,19 @@ void tableOutput(vector<string>& resistors, vector<int>& resistorValues) {
             cout << "| " << resistors[k] << "        | " << resistorValues[k] << "               |\n";
             k++;
         }
-        
+
+        else if (resistors[k].length() == 8 && resistorValues[k] < 10) {
+            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                 |\n";
+            k++;
+        }        
         else if (resistors[k].length() == 8 && resistorValues[k] < 100) {
-            cout << "| " << resistors[k] << "         | " << resistorValues[k] << "               |\n";
+            cout << "| " << resistors[k] << "       | " << resistorValues[k] << "                |\n";
             k++;
         }
         else if (resistors[k].length() == 8 && resistorValues[k] < 1000) {
             cout << "| " << resistors[k] << "       | " << resistorValues[k] << "               |\n";
             k++;
         }        
+        
     }
 }
