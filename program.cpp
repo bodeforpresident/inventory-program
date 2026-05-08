@@ -21,7 +21,7 @@ int main() {
     tableOutputUnsorted(resistors, resistorValues);
 }
 
-void tableOutputUnsorted(vector<string>& resistors, vector<int>& resistorValues) {
+void tableOutputUnsorted(vector<string>& resistors, vector<int>& resistorValues) { // table output
     int k = 0;
     
     cout << "| Resistor Value | Amt. of Resistors |\n";
@@ -29,61 +29,72 @@ void tableOutputUnsorted(vector<string>& resistors, vector<int>& resistorValues)
     while (k <= resistors.size()) {
         if (resistors[k].length() == 5 && resistorValues[k] < 10) {
             cout << "| " << resistors[k] << "          | " << resistorValues[k] << "                 |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }
         
         else if (resistors[k].length() == 5 && resistorValues[k] < 100) {
             cout << "| " << resistors[k] << "          | " << resistorValues[k] << "                |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }
         
         else if (resistors[k].length() == 5 && resistorValues[k] < 1000) {
             cout << "| " << resistors[k] << "          | " << resistorValues[k] << "              |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }
         
         else if (resistors[k].length() == 6 && resistorValues[k] < 10) {
             cout << "| " << resistors[k] << "         | " << resistorValues[k] << "                 |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }
 
         else if (resistors[k].length() == 6 && resistorValues[k] < 100) {
             cout << "| " << resistors[k] << "         | " << resistorValues[k] << "                |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }
         
         else if (resistors[k].length() == 6 && resistorValues[k] < 1000) {
             cout << "| " << resistors[k] << "         | " << resistorValues[k] << "               |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }        
         
         else if (resistors[k].length() == 7 && resistorValues[k] < 10) {
             cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                 |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }        
         
         else if (resistors[k].length() == 7 && resistorValues[k] < 100) {
             cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                |\n";
+            cout << "|________________|___________________|\n";
             k++;            
         }
         
         else if (resistors[k].length() == 7 && resistorValues[k] < 1000) {
             cout << "| " << resistors[k] << "        | " << resistorValues[k] << "               |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }
 
         else if (resistors[k].length() == 8 && resistorValues[k] < 10) {
             cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                 |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }        
         else if (resistors[k].length() == 8 && resistorValues[k] < 100) {
             cout << "| " << resistors[k] << "       | " << resistorValues[k] << "                |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }
         else if (resistors[k].length() == 8 && resistorValues[k] < 1000) {
             cout << "| " << resistors[k] << "       | " << resistorValues[k] << "               |\n";
+            cout << "|________________|___________________|\n";
             k++;
         }        
-        
     }
 }
