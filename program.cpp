@@ -128,7 +128,14 @@ void tableOutputUnsorted(vector<string>& resistors, vector<int>& resistorValues)
             resistorValues[userResistorChoice - 1] = resistorValues[userResistorChoice - 1] + userResistorAmount;
         
         } else if (userResistorChoice == 2) {
-        
+            userResistorChoice = 0;
+            
+            cout << "Enter the resistor # you want to remove resistors from: ";
+            cin >> userResistorChoice;
+            cout << "Enter how many resistors you want to add: ";
+            cin >> userResistorAmount;
+            
+            resistorValues[userResistorChoice - 1] = resistorValues[userResistorChoice - 1] - userResistorAmount;
         }
     }
 } while (k <= resistors.size());
