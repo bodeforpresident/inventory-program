@@ -18,83 +18,118 @@ int main() {
     345, 255, 21, 22, 0, 379, 55, 246, 327, 283, 295, 93, 418, 246, 209, 178, 171, 56, 68, 268, 348, 76, 116, 91, 289, 88, 79, 112, 73, 245, 91, 169, 89, 74, 86, 380, 74, 213, 93, 89, 
     88, 79, 112, 73, 245, 91, 169, 89, 74, 213, 93, 97, 89, 88, 37};
     
-    tableOutputUnsorted(resistors, resistorValues);
+    int userStartChoice;
+    int loop = 1;
+    
+    // user selection
+    cout << "Enter 1 to view the resistor table\n";
+    cout << "Enter 2 to view different table\n";
+    cin >> userStartChoice;
+    
+    if (userStartChoice == 1) {
+        do {
+        tableOutputUnsorted(resistors, resistorValues);
+        } while (loop == 1);
+    }
 }
 
 void tableOutputUnsorted(vector<string>& resistors, vector<int>& resistorValues) { // table output
     int k = 0;
+    int userResistorChoice;
+    int userResistorAmount;
     
-    cout << "| Resistor Value | Amt. of Resistors |\n";
+    cout << "______________________________________\n";
+    cout << "| Resistor Value | Amt. of Resistors | # \n";
     cout << "|________________|___________________|\n";
-    while (k <= resistors.size()) {
+    do {
         if (resistors[k].length() == 5 && resistorValues[k] < 10) {
-            cout << "| " << resistors[k] << "          | " << resistorValues[k] << "                 |\n";
+            cout << "| " << resistors[k] << "          | " << resistorValues[k] << "                 | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }
         
         else if (resistors[k].length() == 5 && resistorValues[k] < 100) {
-            cout << "| " << resistors[k] << "          | " << resistorValues[k] << "                |\n";
+            cout << "| " << resistors[k] << "          | " << resistorValues[k] << "                | " <<  k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }
         
         else if (resistors[k].length() == 5 && resistorValues[k] < 1000) {
-            cout << "| " << resistors[k] << "          | " << resistorValues[k] << "              |\n";
+            cout << "| " << resistors[k] << "          | " << resistorValues[k] << "              | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }
         
         else if (resistors[k].length() == 6 && resistorValues[k] < 10) {
-            cout << "| " << resistors[k] << "         | " << resistorValues[k] << "                 |\n";
+            cout << "| " << resistors[k] << "         | " << resistorValues[k] << "                 | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }
 
         else if (resistors[k].length() == 6 && resistorValues[k] < 100) {
-            cout << "| " << resistors[k] << "         | " << resistorValues[k] << "                |\n";
+            cout << "| " << resistors[k] << "         | " << resistorValues[k] << "                | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }
         
         else if (resistors[k].length() == 6 && resistorValues[k] < 1000) {
-            cout << "| " << resistors[k] << "         | " << resistorValues[k] << "               |\n";
+            cout << "| " << resistors[k] << "         | " << resistorValues[k] << "               | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }        
         
         else if (resistors[k].length() == 7 && resistorValues[k] < 10) {
-            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                 |\n";
+            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                 | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }        
         
         else if (resistors[k].length() == 7 && resistorValues[k] < 100) {
-            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                |\n";
+            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;            
         }
         
         else if (resistors[k].length() == 7 && resistorValues[k] < 1000) {
-            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "               |\n";
+            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "               | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }
 
         else if (resistors[k].length() == 8 && resistorValues[k] < 10) {
-            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                 |\n";
+            cout << "| " << resistors[k] << "        | " << resistorValues[k] << "                 | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }        
         else if (resistors[k].length() == 8 && resistorValues[k] < 100) {
-            cout << "| " << resistors[k] << "       | " << resistorValues[k] << "                |\n";
+            cout << "| " << resistors[k] << "       | " << resistorValues[k] << "                | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
         }
         else if (resistors[k].length() == 8 && resistorValues[k] < 1000) {
-            cout << "| " << resistors[k] << "       | " << resistorValues[k] << "               |\n";
+            cout << "| " << resistors[k] << "       | " << resistorValues[k] << "               | " << k + 1 << "\n";
             cout << "|________________|___________________|\n";
             k++;
-        }        
+        }
+        else {
+        k = resistors.size() + 1;
+        // adding and removing
+        cout << "\nPress 1 to add resistors, press 2 to remove resistors: ";
+        cin >> userResistorChoice;
+    
+        if (userResistorChoice == 1) {
+            userResistorChoice = 0;
+        
+            cout << "Enter the resistor # you want to add resistors to: ";
+            cin >> userResistorChoice;
+            cout << "Enter how many resistors you want to add: ";
+            cin >> userResistorAmount;
+        
+            resistorValues[userResistorChoice - 1] = resistorValues[userResistorChoice - 1] + userResistorAmount;
+        
+        } else if (userResistorChoice == 2) {
+        
+        }
     }
+} while (k <= resistors.size());
 }
